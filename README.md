@@ -1,5 +1,8 @@
 # Currency Converter
+
 A Flutter app to convert currencies using live exchange rates.
+
+
 ## Features
 - Convert between currencies in real time
 - Search and select currencies
@@ -17,8 +20,9 @@ A Flutter app to convert currencies using live exchange rates.
 
 
 
-  
-<h2>Screenshots</h2>
+
+ ## Screenshots
+ 
 <table align="center">
   <tr>
     <td><img src="https://github.com/user-attachments/assets/4d79088d-0342-453c-8f75-fb8e6b7d32e1" width="220"/></td>
@@ -36,24 +40,36 @@ A Flutter app to convert currencies using live exchange rates.
 ## Requirements
 - Flutter SDK (Dart 3.6+)
 - Internet connection for live rates
+
+  
 ## Setup
+
 ```bash
 flutter pub get
 flutter run
-API
+```
+
+## API
+
 Uses fawazahmed0/currency-api:
 
-Primary: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1
-Fallback: https://latest.currency-api.pages.dev/v1
-Tech
-Flutter
-Bloc
-Dio
-feature first architecture 
-Commands
+- Primary: https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1
+- Fallback: https://latest.currency-api.pages.dev/v1
+
+## Tech
+
+- Flutter
+- Bloc
+- Dio
+- Feature First Architecture
+
+## Commands
+
+```bash
 flutter analyze
 flutter test
+```
 
-Author
+## Author
+
 Abas Ashkar S A
-
