@@ -7,6 +7,16 @@ A Flutter app to convert currencies using live exchange rates.
 - Light and dark mode
 - Works offline for cached rates (limited)
 
+
+
+## Demo Video
+
+[Watch Demo Video](https://drive.google.com/file/d/10i188006KQhQPIdNldGQbnWj41x8bGYS/view?usp=sharing)
+
+
+
+
+
   
 <h2>Screenshots</h2>
 <table align="center">
