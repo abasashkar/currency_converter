@@ -11,14 +11,15 @@ class ConversionResultSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocSelector<CurrencyBloc, CurrencyState,
-        (ConversionStatus, ConversionResult?, String?)>(
+        (ConversionStatus, ConversionResult?,List<ConversionResult>, String?)>(
       selector: (s) =>
-          (s.conversionStatus, s.conversionResult, s.conversionErrorMessage),
+          (s.conversionStatus, s.conversionResult,s.transactions, s.conversionErrorMessage,),
       builder: (context, data) {
         return ConversionResultCard(
           conversionStatus: data.$1,
           result: data.$2,
-          errorMessage: data.$3,
+          errorMessage: data.$4,
+          transactions: data.$3,
         );
       },
     );

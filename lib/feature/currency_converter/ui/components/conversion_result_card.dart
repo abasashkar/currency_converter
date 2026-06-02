@@ -9,8 +9,10 @@ class ConversionResultCard extends StatelessWidget {
     required this.conversionStatus,
     this.result,
     this.errorMessage,
-  });
+    required this.transactions,
 
+  });
+  final List<ConversionResult> transactions;
   final ConversionStatus conversionStatus;
   final ConversionResult? result;
   final String? errorMessage;
@@ -31,6 +33,7 @@ class ConversionResultCard extends StatelessWidget {
         );
       },
       child: ConversionResultShell(
+        transactions: transactions,
         key: ValueKey('$conversionStatus-${result?.convertedAmount}'),
         conversionStatus: conversionStatus,
         result: result,

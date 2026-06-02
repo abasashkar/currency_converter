@@ -7,15 +7,18 @@ import 'package:flutter/material.dart';
 
 class ConversionResultShell extends StatelessWidget {
   const ConversionResultShell({
+
     super.key,
     required this.conversionStatus,
     this.result,
     this.errorMessage,
+    required this.transactions
   });
 
   final ConversionStatus conversionStatus;
   final ConversionResult? result;
   final String? errorMessage;
+  final List<ConversionResult> transactions;
 
   bool get _hasSuccess =>
       conversionStatus == ConversionStatus.success && result != null;
@@ -37,7 +40,7 @@ class ConversionResultShell extends StatelessWidget {
             ),
           ],
         ),
-        child: ConversionResultSuccessContent(result: result!),
+        child: ConversionResultSuccessContent(result: result!,transactions: transactions,),
       );
     }
 

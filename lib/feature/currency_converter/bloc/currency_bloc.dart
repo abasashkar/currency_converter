@@ -15,6 +15,7 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
             fromCurrency: AppConstants.defaultFromCurrency,
             toCurrency: AppConstants.defaultToCurrency,
             amount: AppConstants.defaultAmount,
+            transactions: [],
           ),
         ) {
     on<LoadCurrencies>(_onLoadCurrencies, transformer: droppable());
@@ -193,12 +194,13 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
           state.amount != amountText) {
         return;
       }
-
+      final transactions=[result, ...state.transactions];
       emit(
         state.copyWith(
           conversionStatus: ConversionStatus.success,
           conversionResult: result,
           conversionErrorMessage: null,
+          transactions:transactions,
         ),
       );
     } on AppException catch (e) {

@@ -30,7 +30,8 @@ class CurrencyState extends Equatable {
     this.conversionResult,
     this.errorMessage,
     this.conversionErrorMessage,
-    this.amountValidationError,
+    this.amountValidationError, required this.transactions,
+    
   });
 
   final CurrencyStatus status;
@@ -43,6 +44,7 @@ class CurrencyState extends Equatable {
   final String? errorMessage;
   final String? conversionErrorMessage;
   final String? amountValidationError;
+  final List<ConversionResult> transactions;
 
   bool get hasCurrencies => currencies.isNotEmpty;
   bool get isLoading => status == CurrencyStatus.loading;
@@ -60,6 +62,7 @@ class CurrencyState extends Equatable {
     Object? conversionErrorMessage = _unset,
     Object? amountValidationError = _unset,
     bool clearConversionResult = false,
+    List<ConversionResult>? transactions,
   }) {
     return CurrencyState(
       status: status ?? this.status,
@@ -77,7 +80,7 @@ class CurrencyState extends Equatable {
           : conversionErrorMessage as String?,
       amountValidationError: amountValidationError == _unset
           ? this.amountValidationError
-          : amountValidationError as String?,
+          : amountValidationError as String?, transactions: transactions ?? this.transactions,
     );
   }
 
@@ -93,5 +96,6 @@ class CurrencyState extends Equatable {
         conversionErrorMessage,
         amountValidationError,
         currencies,
+        transactions,
       ];
 }

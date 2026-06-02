@@ -4,9 +4,10 @@ import 'package:currency_app/utils/formatters.dart';
 import 'package:flutter/material.dart';
 
 class ConversionResultSuccessContent extends StatelessWidget {
-  const ConversionResultSuccessContent({super.key, required this.result});
+  const ConversionResultSuccessContent({super.key, required this.result, required this.transactions});
 
   final ConversionResult result;
+  final List<ConversionResult> transactions;
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +85,34 @@ class ConversionResultSuccessContent extends StatelessWidget {
             label: 'Rate date',
             value: result.rateDate!,
           ),
+          
         ],
+        const SizedBox(height: 48),
+        Text(
+          'Conversion history',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: Colors.white,
+          ),
+
+        ),
+
+        SizedBox(
+          height: 100,
+          child: ListView.builder(itemCount: transactions.length,itemBuilder: (context, index){
+          
+            return ConversionRateRow(
+          
+              label: '${transactions[index].fromCurrency.toUpperCase()} to ${transactions[index].toCurrency.toUpperCase()}',
+              value: '${result.amount.toStringAsFixed(2)} to ${transactions[index].convertedAmount.toStringAsFixed(2)}',
+            );
+          },
+          ),
+        ),
       ],
+      
     );
+
   }
 }
